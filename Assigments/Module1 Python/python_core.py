@@ -621,3 +621,138 @@ def is_palindrome(s):
     return s == s[::-1]
 
 print(is_palindrome("madam"))
+
+#65.
+'''Built-in Functions: These are the functions that are already available in Python without needing any additional code. Examples include print(), len(), max(), min(), sum(), and many more.
+User-Defined Functions: These are the functions that you create in your code using the def keyword.'''
+
+#66.
+import random
+
+my_list = [1, 2, 3, 4, 5]
+print(random.choice(my_list))
+
+#67.
+print(random.randrange(1, 100))
+
+#68.
+print(random.random())
+
+#69.
+random_number = random.randint(1, 10)
+print(random_number)
+
+#70.
+my_list = [1, 2, 3, 4, 5]
+random.shuffle(my_list)
+print(my_list)
+
+#71.
+'''In Python, a file function allows you to interact with files on the file system. The file operations you can perform include opening a file, reading from it, writing to it, or closing it. You can use the built-in open() function to work with files.
+To create and write a file in Python:
+->Use the open() function to open (or create) a file.
+->Use the write() method to write data into the file.
+->Use the close() method to close the file when done.
+Keywords for creating and writing to a file:
+->"w": Open a file for writing (creates a new file or truncates the file if it exists).
+->"a": Open a file for appending (creates a new file if it does not exist).
+->"x": Open a file for exclusive creation (fails if the file already exists).
+->"wb", "ab", etc.: Open the file in binary mode'''
+
+#72.
+with open("test.txt", "w") as file:
+    file.write("Hello, world!")
+
+with open("test.txt", "r") as file:
+    print(file.read())
+
+#73.
+with open("test.txt", "a") as file:
+    file.write("\nAppending text.")
+
+with open("test.txt", "r") as file:
+    print(file.read())
+
+#74.
+def read_n_lines(filename, n):
+    with open(filename) as file:
+        for _ in range(n):
+            print(file.readline(), end='')
+
+read_n_lines("test.txt", 1)
+
+#75.
+def last_lines(filename, n):
+  with open(filename, "r") as file:
+    lines = file.readlines()
+    last_n_lines = lines[-n:]
+  for line in last_n_lines:
+    print(line.strip())
+
+last_lines("test.txt", 1)
+
+#76.
+file_name = "test.txt"
+list1 = [] 
+with open(file_name, "r") as file:
+    lines = file.readlines()
+
+for line in lines:
+    list1.append(line.strip())
+print(list1)
+
+#77.
+file_name = "test.txt"
+content = ""
+with open(file_name, "r") as file:
+    for line in file:
+        content += line
+print(content)
+
+#78.
+def longest_word(filename):
+    with open(filename) as file:
+        words = file.read().split()
+    return max(words, key=len)
+
+print(longest_word("test.txt"))
+
+#79.
+with open("test.txt") as file:
+    print(sum(1 for _ in file))
+
+#80.
+from collections import Counter
+file_name = "test.txt"
+word_count = Counter()
+with open(file_name, "r") as file:
+    for line in file:
+        words = line.split()
+        word_count.update(words)
+for word, count in word_count.items():
+    print(f"'{word}': {count} times")
+
+#81.
+my_list = ["apple", "banana", "cherry"]
+with open("output.txt", "w") as file:
+    file.writelines("\n".join(my_list))
+
+#82.
+with open("test.txt", "r") as file1, open("copy.txt", "w") as file2:
+    file2.write(file1.read())
+
+#83.
+
+#84.
+
+#85.
+
+#86.
+
+#87.
+
+#88.
+
+#89.
+
+#90.
