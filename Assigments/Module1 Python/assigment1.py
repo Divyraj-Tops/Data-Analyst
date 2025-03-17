@@ -58,7 +58,6 @@ for word, count in word_counts.items():
     print(f"'{word}': {count}")
 
 #4. Write a Python program to get a single string from two given strings, separated by a space and swap the first two characters of each string
-# dount
 def swap_first_two_and_combine(str1, str2):
     if len(str1) < 2 or len(str2) < 2:
         return "Both strings must have at least two characters."
@@ -69,8 +68,8 @@ def swap_first_two_and_combine(str1, str2):
     return swapped_str1 + " " + swapped_str2  # Combine with a space
 
 # Test
-str1 = "programmingisfun"
-str2 = "hellotherebuddy"
+str1 = "programming"
+str2 = "hellothere"
 result = swap_first_two_and_combine(str1, str2)
 print(result)
 
@@ -93,7 +92,7 @@ print(add_ing_or_ly("go"))
 #6. Write a Python program to find the first appearance of the substring 'not' and 'poor' from a given string, if
 #'not' follows the 'poor', replace the whole 'not'...'poor' substring with 'good'.
 #Return the resulting string
-#doubts
+
 def replace_not_poor(sentence):
     not_index = sentence.find("not")
     poor_index = sentence.find("poor")
@@ -159,14 +158,10 @@ print(unique_values)  # Output: [1, 2, 3, 4, 5, 6] (Order may vary)
 def unzip_tuples(tuples_list):
     return list(zip(*tuples_list))  # Unzips the tuples into separate lists
 
-# Example usage
+# Test
 tuples = [(1, 'a'), (2, 'b'), (3, 'c')]
 unzipped = unzip_tuples(tuples)
 
-# Convert tuples to lists (optional)
-unzipped_lists = [list(item) for item in unzipped]
-
-print(unzipped_lists)  # Output: [[1, 2, 3], ['a', 'b', 'c']]
 
 #12. Write a Python program to convert a list of tuples into a dictionary
 def convert_to_dict(tuples_list):
@@ -176,13 +171,13 @@ def convert_to_dict(tuples_list):
 tuples = [(1, 'one'), (2, 'two'), (3, 'three')]
 dictionary = convert_to_dict(tuples)
 
-print(dictionary)  # Output: {1: 'one', 2: 'two', 3: 'three'}
+print(dictionary)
 
 #13. Write a Python program to sort a dictionary (ascending /descending) by value
 def sort_dict_by_value(d, ascending=True):
     return dict(sorted(d.items(), key=lambda item: item[1], reverse=not ascending))
 
-# Example usage
+# Test
 my_dict = {'apple': 5, 'banana': 2, 'cherry': 8, 'date': 3}
 
 # Sorting in ascending order
@@ -197,21 +192,20 @@ print("Descending:", desc_sorted)
 def top_three_values(d):
     return dict(sorted(d.items(), key=lambda item: item[1], reverse=True)[:3])
 
-# Example usage
+# Test
 my_dict = {'apple': 5, 'banana': 2, 'cherry': 8, 'date': 3, 'elderberry': 10, 'fig': 7}
 
-# Get the top 3 highest values
 top_3 = top_three_values(my_dict)
 print("Top 3 highest values:", top_3)
 
 #15
 def fibonacci_series(n):
-    fib_list = [0, 1]  # Starting the series with 0 and 1
-    for _ in range(n - 2):  # Generate remaining numbers
+    fib_list = [0, 1]  
+    for _ in range(n - 2):
         fib_list.append(fib_list[-1] + fib_list[-2])
     return fib_list[:n]  # Return only the first n numbers
 
-# Example usage
+# Test
 n = 7
 fib_numbers = fibonacci_series(n)
 print("First few Fibonacci numbers are:", ", ".join(map(str, fib_numbers)))
@@ -223,7 +217,7 @@ def count_frequencies(lst):
         freq_dict[num] = freq_dict.get(num, 0) + 1
     return freq_dict
 
-# Example usage
+# Test
 lst = [1, 1, 1, 5, 5, 3, 1, 3, 3, 1, 4, 4, 4, 2, 2, 2, 2]
 freq_dict = count_frequencies(lst)
 
@@ -246,8 +240,8 @@ def sum_even_series(n):
         sum_even += (i**2) / math.factorial(i)
     return sum_even
 
-# Example usage
-n = 6  # You can change n as needed
+# Test
+n = 6
 odd_sum = sum_odd_series(n)
 even_sum = sum_even_series(n)
 
@@ -261,7 +255,7 @@ def factorial(n):
     else:
         return n * factorial(n - 1)  # Recursive case
 
-# Example usage
+# Test
 num = int(input("Enter a number: "))
 result = factorial(num)
 print(f"Factorial of {num} is {result}")
@@ -270,7 +264,7 @@ print(f"Factorial of {num} is {result}")
 def unique_elements(lst):
     return list(set(lst))  # Convert list to set to remove duplicates, then back to list
 
-# Example usage
+# Test
 my_list = [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 7, 8]
 unique_list = unique_elements(my_list)
 
@@ -308,7 +302,7 @@ def generate_password(user_input):
         print(f"Error: {e}")
         return None
 
-# Example usage
+# Test
 try:
     user_id = input("Enter User ID: ")
     name = input("Enter Name: ")
@@ -324,6 +318,8 @@ try:
         print("Generated Password:", user.password)
 except Exception as e:
     print(f"Unexpected error: {e}")
+
+
 
 ## MODULE4
 
@@ -411,7 +407,7 @@ plt.title(f'Top {n} Car Models by Frequency')
 plt.xlabel('Frequency')
 plt.ylabel('Car Model')
 plt.tight_layout()
-plt.show()b=
+plt.show()
 
 # Correlation Analysis
 correlation_matrix = df[numerical_features].corr()
