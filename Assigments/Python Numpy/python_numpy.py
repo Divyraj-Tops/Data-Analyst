@@ -10,7 +10,6 @@ Original file is located at
 #1.
 import numpy as np
 
-# Create a 3x3 identity matrix with float type
 identity_matrix = np.eye(3, dtype=float)
 
 print(identity_matrix)
@@ -163,7 +162,7 @@ print(subarray_2x2)
 
 #18.
 
-#19. doubts
+#19.
 
 arr_4x4 = np.arange(1,17).reshape(4,4)
 arr_4x4
@@ -190,39 +189,33 @@ print("\nArrays Match:", np.array_equal(array_1d, flattened_array))
 import numpy as np
 import time
 
-# Step 1: Create two large random matrices (1000x1000)
 np.random.seed(42)  # For reproducibility
 A = np.random.rand(1000, 1000)
 B = np.random.rand(1000, 1000)
 
-# Step 2: Perform matrix multiplication using np.dot()
 start_time_dot = time.time()
 result_dot = np.dot(A, B)
 end_time_dot = time.time()
 
-# Step 3: Perform matrix multiplication using @ operator
 start_time_at = time.time()
 result_at = A @ B
 end_time_at = time.time()
 
-# Step 4: Verify results are the same
 if np.allclose(result_dot, result_at):
-    print("✅ Both methods produce the same result.")
+    print("Both methods produce the same result.")
 else:
-    print("❌ The results differ.")
+    print("The results differ.")
 
-# Step 5: Compare execution times
 time_dot = end_time_dot - start_time_dot
 time_at = end_time_at - start_time_at
 
 print(f"\nTime taken using np.dot(): {time_dot:.6f} seconds")
 print(f"Time taken using @ operator: {time_at:.6f} seconds")
 
-# Step 6: Determine the faster method
 if time_at < time_dot:
-    print("\n🏆 The '@' operator is faster!")
+    print("\nThe '@' operator is faster!")
 else:
-    print("\n🏆 'np.dot()' is faster!")
+    print("\n'np.dot()' is faster!")
 
 #22.
 arr_3d = np.arange(8).reshape(2,1,4)
@@ -255,18 +248,15 @@ print(flipped_H)
 array_4D = np.random.randint(1,100,(2,3,4,5))
 print("Original 4D Array Shape:", array_4D.shape)
 
-# Step 2: Extract a subarray (first element along axis 0 and first two along axis 1)
 subarray = array_4D[0, :2, :, :]
 print("\nExtracted Subarray Shape:", subarray.shape)
 
-# Step 3: Compute mean along axis 2 (column-wise mean)
 mean_values = np.mean(subarray, axis=2)
 print("\nMean Along Axis 2:\n", mean_values)
 
 #26.
 array_10x20 = np.arange(200).reshape(10, 20)
 
-# Step 2: Reshape into (20,10) and (5,40)
 array_20x10 = array_10x20.reshape(20, 10)
 array_5x40 = array_10x20.reshape(5, 40)
 
@@ -277,7 +267,6 @@ print("Reshaped to (5,40):", array_5x40.shape)
 #27.
 large_array = np.random.rand(100, 100)
 
-# Step 2: Reshape it for different operations
 reshaped_50x200 = large_array.reshape(50, 200)
 reshaped_20x500 = large_array.reshape(20, 500)
 
@@ -285,29 +274,23 @@ print("Original Shape:", large_array.shape)
 print("Reshaped to (50,200):", reshaped_50x200.shape)
 print("Reshaped to (20,500):", reshaped_20x500.shape)
 
-# Step 3: Flatten using np.ravel() (more memory efficient than flatten())
 flattened_array = large_array.ravel()
 print("Flattened Shape:", flattened_array.shape)
 
 #28.
-# Step 1: Create a 6x6 matrix with random integers
 np.random.seed(42)
 matrix_6x6 = np.random.randint(1, 101, size=(6, 6))
 
 print("Original 6x6 Matrix:\n", matrix_6x6)
 
-# Step 2: Extract the upper triangular part
 upper_triangular = np.triu(matrix_6x6)
-
-# Step 3: Set the lower triangular part to zero
 matrix_6x6[np.tril_indices(6, -1)] = 0
 
 print("\nUpper Triangular Matrix:\n", upper_triangular)
 print("\nMatrix After Setting Lower Part to Zero:\n", matrix_6x6)
 
-# Step 4: Verify if the operation was successful
 if np.array_equal(matrix_6x6, upper_triangular):
-    print("\n✅ Lower part set to zero correctly!")
+    print("\nLower part set to zero correctly!")
 else:
-    print("\n❌ Something went wrong.")
+    print("\nSomething went wrong.")
 
